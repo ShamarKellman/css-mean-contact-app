@@ -1,0 +1,14 @@
+angular.module('contactApp', 
+	['ui.router',
+     'ngResource',
+	 'ngMaterial',
+	 'ngAnimate',
+	 'ngMdIcons',
+     'naif.base64',
+ 	 'appRoutes',
+ 	 'appDirectives',
+ 	 'AddContactCtrl',
+ 	 'SidebarCtrl',
+ 	 'SingleContactCtrl',
+ 	 'ContactService'
+ ]);

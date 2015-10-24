@@ -1,0 +1,26 @@
+<div ng-controller="SidebarController">
+		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+			<md-toolbar class="md-tall md-hue-2">
+				<span flex></span>
+				<div layout="column" class="md-toolbar-tools-bottom inset">
+					<user-avatar></user-avatar>
+					<span>{{ tagline }}</span>
+					<div>{{ my.name.first }} {{my.name.last}}</div>
+					<div>{{ my.email}}</div>
+				</div>
+			</md-toolbar>
+			<md-list>
+				<md-item ng-repeat="contact in contacts"  ui-sref='base.single-contact({contact_id: contact._id})'>
+					<a>
+						<md-item-content md-ink-ripple layout="row" layout-align="start center">
+							<div class="inset">
+								<md-icon md-font-library="material-icons" class="md-accent md-64">person</md-icon>
+							</div>
+							<div class="inset">{{ contact.name.title }} {{ contact.name.first }} {{ contact.name.last }}</div>
+							<md-icon ng-show="showDelete" md-font-library="material-icons" class="md-light md-48" ng-click="delete(contact._id)">delete</md-icon>
+						</md-item-content>
+					</a>
+				</md-item>				
+			</md-list>
+		</md-sidenav>
+	</div>

@@ -1,0 +1,88 @@
+<div layout="column">
+   
+    <md-toolbar class="md-accent">
+		<div class="md-toolbar-tools">
+            <md-button ng-disabled="addcontact.$invalid" ng-click="save(addcontact.$valid)">
+               <md-icon md-font-library="material-icons" class="md-light md-48">done</md-icon>
+            </md-button><h1>Save</h1>		
+		</div>
+	</md-toolbar>
+	<md-content layout-padding>
+        <form name="addcontact">
+            <div layout="column">
+                <span>Name</span>
+                <div layout="row">
+                    <md-input-container flex>
+                        <label>Title</label>
+                        <input name="name.title" ng-model="contact.name.title">
+                  </md-input-container>
+                  <md-input-container flex>
+                        <label>First</label>
+                        <input name="name.first" ng-model="contact.name.first" ng-required="true">
+                  </md-input-container>
+                  <md-input-container  flex>
+                        <label>Last</label>
+                        <input name="name.last" ng-model="contact.name.last" ng-required="true">
+                  </md-input-container>
+                </div>
+                <span>Phone</span>
+                <div layout="row">
+                    <md-input-container flex>
+                        <label>Home</label>
+                        <input name="phone.home" ng-model="contact.phone.home">
+                  </md-input-container>
+                  <md-input-container flex>
+                        <label>Work</label>
+                        <input name="phone.work" ng-model="contact.phone.work">
+                  </md-input-container>
+                  <md-input-container  flex>
+                        <label>Mobile</label>
+                        <input name="phone.mobile" ng-model="contact.phone.mobile" ng-required="true">
+                  </md-input-container>
+                  <md-input-container  flex>
+                        <label>Other</label>
+                        <input name="phone.other" ng-model="contact.phone.other">
+                  </md-input-container>
+                </div>
+                <span>Occupation</span>
+                <div layout="row">
+                    <md-input-container flex>
+                        <label>Occupation</label>
+                        <input name="occupation" ng-model="contact.occupation">
+                  </md-input-container>
+                </div>
+                <span>Relationship</span>
+                <div layout="row">
+                    <md-input-container flex>
+                        <label>Relationship</label>
+                        <input name="relationship" ng-model="contact.relationship">
+                  </md-input-container>
+                </div>
+                <div layout="row">
+                   <div layout="column" flex="33">
+                        <span>Image</span>
+                        <md-input-container layout="column">
+                            <md-button ng-click="" choose-file-button="file-input" class="md-raised md-accent" accept="image/*" ng-model="contact.image">Select File</md-button>
+                            <input id="file-input" ng-model="contact.image" type="file" style="display: none;" base-sixty-four-input>
+                            <img width="300" height="300" ng-src="data:{{contact.image.filetype}};base64,{{contact.image.base64}}" alt="">
+                        </md-input-container>
+                    </div>
+                    <div layout="column" flex>
+                       <div>
+                           <span>Email </span> 
+                           <md-button ng-click="addEmail()" class="md-fab md-mini md-primary">
+                               <md-icon md-font-library="material-icons" class="md-light md-48">add</md-icon>
+                           </md-button>
+                       </div>
+
+                        <md-input-container layout="column" ng-repeat="email in contact.email track by $index">
+                            <label>Other</label>
+                            <input type="email" name="contact.email" ng-model="contact.email[$index]" ng-required="true">
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </form>
+	</md-content>
+	
+</div>

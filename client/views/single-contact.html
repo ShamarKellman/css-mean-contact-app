@@ -1,0 +1,49 @@
+<div layout="column">
+	<md-toolbar class="md-accent">
+		<div class="md-toolbar-tools">
+			<span>{{ contact.name.title }} {{contact.name.first}} {{contact.name.last}}</span>
+		</div>
+	</md-toolbar>
+	<md-content layout-padding>
+		<div layout="column" flex>
+            <div layout-padding="bottom">
+                <h2 class="md-headline"><ng-md-icon icon="phone" style="fill: pink" size="24"></ng-md-icon> Phone</h2>
+                <div layout="row">
+                    <div flex="25">
+                        <p>Home: {{ contact.phone.home }}</p>
+                    </div>
+                    <div flex="25">
+                        <p>Work: {{ contact.phone.work }}</p>
+                    </div>
+                    <div flex="25">
+                        <p>Mobile: {{ contact.phone.mobile }}</p>
+                    </div>
+                    <div flex="25">
+                        <p>Other: {{ contact.phone.other }}</p>
+                    </div>
+                </div>
+            </div>			
+			<div layout="row">
+               <div layout-padding="right">
+                   <img width="300" height="300" ng-src="{{ contact.image }}" alt="">
+               </div>
+               <div layout-padding="left">
+                   <h2 class="md-headline"><ng-md-icon icon="email" style="fill: pink" size="24"></ng-md-icon> Email</h2>
+                    <div layout="column">
+                        <div flex="25" ng-repeat="email in contact.email">
+                            <p>{{ email }}</p>
+                        </div>
+                    </div>
+               </div>
+			</div>
+			<div>
+			    <h2 class="md-headline"><ng-md-icon icon="location_city" style="fill: pink" size="24"></ng-md-icon> Occupation</h2>
+			    <p>{{ contact.occupation }}</p>
+			</div>
+			<div>
+			    <h2 class="md-headline"><ng-md-icon icon="people" style="fill: pink" size="24"></ng-md-icon> Relationship</h2>
+			    <p>{{ contact.relationship }}</p>
+			</div>
+		</div>
+	</md-content>
+</div>
